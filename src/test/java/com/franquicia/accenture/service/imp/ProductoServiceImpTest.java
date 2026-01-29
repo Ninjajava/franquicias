@@ -1,9 +1,10 @@
 package com.franquicia.accenture.service.imp;
 
-import com.franquicia.accenture.dto.ActualizarStockRequest;
-import com.franquicia.accenture.dto.CrearProductoRequest;
-import com.franquicia.accenture.model.Producto;
-import com.franquicia.accenture.repository.ProductoRepository;
+import com.franquicia.accenture.application.dto.ActualizarStockRequest;
+import com.franquicia.accenture.application.dto.CrearProductoRequest;
+import com.franquicia.accenture.application.service.ProductoService;
+import com.franquicia.accenture.domain.model.Producto;
+import com.franquicia.accenture.domain.port.output.ProductoRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,10 +25,10 @@ import static org.mockito.Mockito.*;
 class ProductoServiceImpTest {
 
     @Mock
-    private ProductoRepository productoRepository;
+    private ProductoRepositoryPort productoRepository;
 
     @InjectMocks
-    private ProductoServiceImp service;
+    private ProductoService service;
 
     private Producto producto;
     private CrearProductoRequest crearRequest;

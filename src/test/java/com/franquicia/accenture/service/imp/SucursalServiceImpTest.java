@@ -1,9 +1,9 @@
 package com.franquicia.accenture.service.imp;
 
-import com.franquicia.accenture.dto.CrearSucursalRequest;
-import com.franquicia.accenture.model.Sucursal;
-import com.franquicia.accenture.repository.ProductoRepository;
-import com.franquicia.accenture.repository.SucursalRepository;
+import com.franquicia.accenture.application.dto.CrearSucursalRequest;
+import com.franquicia.accenture.application.service.SucursalService;
+import com.franquicia.accenture.domain.model.Sucursal;
+import com.franquicia.accenture.domain.port.output.SucursalRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,13 +21,10 @@ import static org.mockito.Mockito.*;
 class SucursalServiceImpTest {
 
     @Mock
-    private SucursalRepository sucursalRepository;
-
-    @Mock
-    private ProductoRepository productoRepository;
+    private SucursalRepositoryPort sucursalRepository;
 
     @InjectMocks
-    private SucursalServiceImp service;
+    private SucursalService service;
 
     private Sucursal sucursal;
     private CrearSucursalRequest request;

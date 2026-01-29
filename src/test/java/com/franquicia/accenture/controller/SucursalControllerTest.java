@@ -1,8 +1,9 @@
 package com.franquicia.accenture.controller;
 
-import com.franquicia.accenture.dto.CrearSucursalRequest;
-import com.franquicia.accenture.model.Sucursal;
-import com.franquicia.accenture.service.SucursalService;
+import com.franquicia.accenture.application.dto.CrearSucursalRequest;
+import com.franquicia.accenture.application.service.SucursalService;
+import com.franquicia.accenture.domain.model.Sucursal;
+import com.franquicia.accenture.presentation.controller.SucursalController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,6 +34,7 @@ class SucursalControllerTest {
 
     @BeforeEach
     void setUp() {
+        controller = new SucursalController(service);
         webTestClient = WebTestClient.bindToController(controller).build();
 
         sucursal = new Sucursal();

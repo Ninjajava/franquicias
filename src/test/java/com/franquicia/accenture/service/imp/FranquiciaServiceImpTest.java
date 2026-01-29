@@ -1,15 +1,16 @@
 package com.franquicia.accenture.service.imp;
 
-import com.franquicia.accenture.dto.CrearFranquiciaRequest;
-import com.franquicia.accenture.dto.ProductoMaxStockResponse;
-import com.franquicia.accenture.dto.ProductoRequest;
-import com.franquicia.accenture.dto.SucursalRequest;
-import com.franquicia.accenture.model.Franquicia;
-import com.franquicia.accenture.model.Producto;
-import com.franquicia.accenture.model.Sucursal;
-import com.franquicia.accenture.repository.FranquiciaRepository;
-import com.franquicia.accenture.repository.ProductoRepository;
-import com.franquicia.accenture.repository.SucursalRepository;
+import com.franquicia.accenture.application.dto.CrearFranquiciaRequest;
+import com.franquicia.accenture.application.dto.ProductoMaxStockResponse;
+import com.franquicia.accenture.application.dto.ProductoRequest;
+import com.franquicia.accenture.application.dto.SucursalRequest;
+import com.franquicia.accenture.application.service.FranquiciaService;
+import com.franquicia.accenture.domain.model.Franquicia;
+import com.franquicia.accenture.domain.model.Producto;
+import com.franquicia.accenture.domain.model.Sucursal;
+import com.franquicia.accenture.domain.port.output.FranquiciaRepositoryPort;
+import com.franquicia.accenture.domain.port.output.ProductoRepositoryPort;
+import com.franquicia.accenture.domain.port.output.SucursalRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -32,16 +33,16 @@ import static org.mockito.Mockito.*;
 class FranquiciaServiceImpTest {
 
     @Mock
-    private FranquiciaRepository franquiciaRepo;
+    private FranquiciaRepositoryPort franquiciaRepo;
 
     @Mock
-    private SucursalRepository sucursalRepo;
+    private SucursalRepositoryPort sucursalRepo;
 
     @Mock
-    private ProductoRepository productoRepo;
+    private ProductoRepositoryPort productoRepo;
 
     @InjectMocks
-    private FranquiciaServiceImp service;
+    private FranquiciaService service;
 
     private Franquicia franquicia;
     private Sucursal sucursal;

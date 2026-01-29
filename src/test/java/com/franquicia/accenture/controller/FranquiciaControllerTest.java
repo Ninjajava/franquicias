@@ -1,9 +1,10 @@
 package com.franquicia.accenture.controller;
 
-import com.franquicia.accenture.dto.CrearFranquiciaRequest;
-import com.franquicia.accenture.dto.ProductoMaxStockResponse;
-import com.franquicia.accenture.model.Franquicia;
-import com.franquicia.accenture.service.FranquiciaService;
+import com.franquicia.accenture.application.dto.CrearFranquiciaRequest;
+import com.franquicia.accenture.application.dto.ProductoMaxStockResponse;
+import com.franquicia.accenture.application.service.FranquiciaService;
+import com.franquicia.accenture.domain.model.Franquicia;
+import com.franquicia.accenture.presentation.controller.FranquiciaController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,6 +35,7 @@ class FranquiciaControllerTest {
 
     @BeforeEach
     void setUp() {
+        controller = new FranquiciaController(service);
         webTestClient = WebTestClient.bindToController(controller).build();
 
         franquicia = new Franquicia();

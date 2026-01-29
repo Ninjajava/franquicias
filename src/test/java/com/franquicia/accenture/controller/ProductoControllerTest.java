@@ -1,9 +1,10 @@
 package com.franquicia.accenture.controller;
 
-import com.franquicia.accenture.dto.ActualizarStockRequest;
-import com.franquicia.accenture.dto.CrearProductoRequest;
-import com.franquicia.accenture.model.Producto;
-import com.franquicia.accenture.service.ProductoService;
+import com.franquicia.accenture.application.dto.ActualizarStockRequest;
+import com.franquicia.accenture.application.dto.CrearProductoRequest;
+import com.franquicia.accenture.application.service.ProductoService;
+import com.franquicia.accenture.domain.model.Producto;
+import com.franquicia.accenture.presentation.controller.ProductoController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,6 +38,7 @@ class ProductoControllerTest {
 
     @BeforeEach
     void setUp() {
+        controller = new ProductoController(service);
         webTestClient = WebTestClient.bindToController(controller).build();
 
         producto = new Producto();
